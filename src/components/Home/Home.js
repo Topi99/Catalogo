@@ -14,7 +14,7 @@ const Home = ({firebase}) => {
           <Card 
             key={cat.id} 
             titulo={cat.data().nombre} 
-            link={`/categorias/${cat.data().nombre}/`}
+            link={`/categorias/${cat.id}/`}
             imgSrc={cat.data().imgSrc}
           />
         )
