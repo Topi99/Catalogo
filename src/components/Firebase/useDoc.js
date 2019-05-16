@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 
-const useQuery = ref => {
-  const [ docState, setDocState ] = useState({
+const useDoc = ref => {
+  const [docState, setDocState] = useState({
     isLoading: true,
     data: null
   });
 
   useEffect(() => {
-    return ref.onSnapshot(docs => {
+    return ref.onSnapshot(doc => {
       setDocState({
         isLoading: false,
-        data: docs    
+        data: doc
       });
     });
   });
@@ -18,4 +18,4 @@ const useQuery = ref => {
   return docState;
 }
 
-export default useQuery;
+export default useDoc;

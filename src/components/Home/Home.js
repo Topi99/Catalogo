@@ -1,37 +1,16 @@
-import React, { useState } from 'react';
-import Card from '../Card';
+import React from 'react';
 import { withFirebase, useQuery } from '../Firebase';
+import Grid from '../Grid';
 
 const Home = ({firebase}) => {
 
   const refCategorias = firebase.db.collection('categorias');
   const { isLoading, data} = useQuery(refCategorias);
 
-  const getCategorias = categorias => {
-    if(categorias) {  
-      return(
-        categorias.docs.map(cat => 
-          <Card 
-            key={cat.id} 
-            titulo={cat.data().nombre} 
-            link={`/categorias/${cat.id}/`}
-            imgSrc={cat.data().imgSrc}
-          />
-        )
-      );
-    } else {
-      return(<p>No hay nada por aquí :(</p>)
-    }
-  }
-
   return(
     <section className="Home">
       <main>
-        <section className="categories">
-          {
-            getCategorias(data)
-          }
-        </section>
+        <Grid path='/categorias/' isLoading={isLoading} data={data} />
       </main>
     </section>
   );

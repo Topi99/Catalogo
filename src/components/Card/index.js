@@ -6,7 +6,7 @@ const Card = ({titulo, descripcion, imgSrc, link, className}) => {
     <article className={`Card ${className}`}>
       <Link to={link}>
         <div className="img-container">
-          <img src={imgSrc} />
+          <img src={imgSrc} alt={titulo} />
         </div>
         <div className="info">
           <p className="title">{titulo}</p>

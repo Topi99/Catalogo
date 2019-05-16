@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Link } from 'react-router-dom';
 import Routes from './components/routes';
 import './App.scss';
 
@@ -12,9 +11,9 @@ function App() {
           <header>
             <nav>
               <ul className="elements">
-                <li>Libros</li>
-                <li>Catálogos</li>
-                <li>Revistas</li>
+                <li><Link to='/tipos/Libro'>Libros</Link></li>
+                <li><Link to='/tipos/Catalogo'>Catálogos</Link></li>
+                <li><Link to='/tipos/Revista'>Revistas</Link></li>
               </ul>
 
               <div className="search-box">
