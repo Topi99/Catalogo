@@ -1,0 +1,130 @@
+@import './colors/color';
+
+html, body, ul, li, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $KOF-3-hex;
+  font-size: 1.1rem;
+  color: rgb(35,35,35);
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  width: 80vw;
+  margin: auto;
+  .categories {
+    padding: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 35px; 
+  }
+}
+
+nav {
+  display: flex;
+  padding: 100px 0px 30px;  
+  flex-direction: column;
+  width: 60vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  
+  ul.elements {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  div.search-box {
+    width: 65%;
+    padding: 25px;
+
+    input {
+      width: 85%;
+      padding: 10px;
+      height: 50px; 
+      border: 2px solid $KOF-4-hex;
+      border-radius: 5px 0 0 5px;
+      box-sizing: border-box;
+      transition: .8s;
+      font-size: 1rem;
+      box-shadow: 0px 0px 0px 0px $KOF-4-opacity;
+
+      &:focus {
+        outline: 0;
+        box-shadow: 0px 0px 30px 30px rgba(0,0,0,0);
+      }
+    }
+
+    button {
+      width: 15%;
+      background-color: $KOF-4-hex;
+      box-sizing: border-box;
+      height: 50px;
+      border: none;
+      cursor: pointer;
+      border-radius: 0px 5px 5px 0px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  }
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 0px 1px rgba(0,0,0,.1);
+  
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+  
+  .img-container {  
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+    img {
+      height: 100%;
+    }
+  }
+  
+  .info {
+    width: 100%;
+    padding: 25px 0px 15px 0;
+    font-size: 1.15rem;
+
+    .title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 15px 0;
+    }
+  }
+}
