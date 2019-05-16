@@ -1,10 +1,40 @@
 import React, { useState } from 'react';
-import { Route } from 'react-router-dom';
+import Card from '../Card';
+import { withFirebase, useQuery } from '../Firebase';
 
-const Home = props => {
+const Home = ({firebase}) => {
+
+  const refCategorias = firebase.db.collection('categorias');
+  const { isLoading, data} = useQuery(refCategorias);
+
+  const getCategorias = categorias => {
+    if(categorias) {  
+      return(
+        categorias.docs.map(cat => 
+          <Card 
+            key={cat.id} 
+            titulo={cat.data().nombre} 
+            link={`/categorias/${cat.data().nombre}/`}
+            imgSrc={cat.data().imgSrc}
+          />
+        )
+      );
+    } else {
+      return(<p>No hay nada por aquí :(</p>)
+    }
+  }
+
   return(
-    <h1>Hola</h1>
+    <section className="Home">
+      <main>
+        <section className="categories">
+          {
+            getCategorias(data)
+          }
+        </section>
+      </main>
+    </section>
   );
 };
 
-export default Home;
+export default withFirebase(Home);
