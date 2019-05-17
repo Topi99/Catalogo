@@ -13,7 +13,7 @@ const useDoc = ref => {
         data: doc
       });
     });
-  });
+  }, []);
 
   return docState;
 }

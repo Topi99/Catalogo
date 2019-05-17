@@ -8522,6 +8522,11 @@ react-app-polyfill@^1.0.1:
     regenerator-runtime "0.13.2"
     whatwg-fetch "3.0.0"
 
+react-awesome-toasts@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/react-awesome-toasts/-/react-awesome-toasts-0.0.9.tgz#079104969c0f29eec1b202e54d3da6f711530c80"
+  integrity sha512-UUTMnUnJIoquncTK5vLs1fdOlUvwBsfPnmA2l5gI18cuCLvZW27MHYbrjux8xXkSWeHWa/4tf/Ack1H9LfMFWw==
+
 react-dev-utils@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.0.1.tgz#5c03d85a0b2537d0c46af7165c24a7dfb274bef2"

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { withFirebase, useAuth } from '../Firebase';
+import Form from './Form';
 
 const Admin = ({firebase}) => {
 
@@ -8,27 +9,19 @@ const Admin = ({firebase}) => {
 
   const getActive = () => {
     if(active==='inicio')
-      return <div> Aquí podras añadir elementos a la base de datos.</div>
+      return <div> Aquí podras añadir elementos a la base de datos. Selecciona alguna opción del panel de la izquierda.</div>
   
     if(active==='lib')
-      return(
-        <div> Aquí podras añadir libros a la base de datos.</div>
-      );
+      return <Form type='Libro' />
 
     if(active==='cata')
-      return(
-        <div> Aquí podras añadir catálogos a la base de datos.</div>
-      );
+      return <Form type='Catálogo' />
 
     if(active==='rev')
-      return(
-        <div> Aquí podras añadir revistas a la base de datos.</div>
-      );
+      return <Form type='Revista' />
 
     if(active==='cate')
-      return(
-        <div> Aquí podras añadir categorías a la base de datos.</div>
-      );
+      return <Form type='Libro' />
   }
 
   const [ correo, setCorreo ] = useState('');

@@ -106,6 +106,7 @@ header {
   padding: 20px;
   border-radius: 5px;
   box-sizing: border-box;
+  overflow: hidden;
   transition: .4s;
   box-shadow: 0px 0px 0px 1px rgba(0,0,0,.1),
               0px 2px 5px 0px rgba(0,0,0,.3);
@@ -226,7 +227,7 @@ header {
       padding: 0 15px;
     }
 
-    input {
+    input, select {
       padding: 10px;
       border-radius: 5px;
       border: 1px solid rgba(0,0,0,.2);
@@ -242,4 +243,8 @@ header {
     font-weight: 600;
     cursor: pointer;
   }
+}
+
+.no-padding {
+  padding: 0 !important;
 }
