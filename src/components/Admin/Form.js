@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { withFirebase, useQuery } from '../Firebase';
+import { withToast } from 'react-awesome-toasts';
 
-const Form = ({type, firebase}) => {
+const Form = ({type, firebase, toast}) => {
 
-  const [ formData, setFormData ] = useState({
+  const initialState = {
     autor: '',
     añoPub: '',
     cantidad: 0,
@@ -17,15 +18,17 @@ const Form = ({type, firebase}) => {
     nombre: '',
     pais: '',
     tipo: type
-  });
+  };
+  const [ formData, setFormData ] = useState({...initialState});
 
   const handleChange = (value, id) => {
     if(id==='categoriaID') {
       setFormData({
         ...formData,
         [id]: value,
-        categoria: data.docs.find(cat => cat.id === id).data().nombre
+        categoria: data.docs.find(cat => cat.id === value).data().nombre
       });
+      // console.log(data.docs.find(cat => cat.id === value).data().nombre);
     } else {
       setFormData({
         ...formData,
@@ -46,6 +49,8 @@ const Form = ({type, firebase}) => {
 
   const save = e => {
     e.preventDefault();
+    toast.show({ text: 'Nuevo elemento Guardado' });
+    setFormData({...initialState});
     firebase.db.collection('elemento').add(formData);
   }
 
@@ -106,4 +111,4 @@ const Form = ({type, firebase}) => {
   );
 }
 
-export default withFirebase(Form);
+export default withToast(withFirebase(Form));
